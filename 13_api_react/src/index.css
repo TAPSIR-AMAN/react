@@ -9,3 +9,16 @@ html, body {
   height: 100%;
   width: 100%;
 }
+.newdiv{
+  height: 300px;
+  width: 300px;
+}
+.p-div{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+img{
+  height: 300px;
+  width: 300px;
+}

@@ -15,43 +15,44 @@ const App = () => {
   //     console.log("this is now complete")
   //   })
   // }
-const [Mdata, setData] = useState([])
-const [copy, setCopy] = useState([])
+
+  const [copy, setCopy] = useState([])
 
 
-const getData=async()=>{
-  // const response=await axios.get('https://jsonplaceholder.typicode.com/users')
-  // console.log(response.data.name);
-  // const {data}=await axios.get('https://jsonplaceholder.typicode.com/users')
-  // console.log(data);
-  
-  // const {image}=await axios.get('https://picsum.photos/v2/list')
-  // console.log(image)//this wont give destructure
+  const getData = async () => {
+    // const response=await axios.get('https://jsonplaceholder.typicode.com/users')
+    // console.log(response.data.name);
+    // const {data}=await axios.get('https://jsonplaceholder.typicode.com/users')
+    // console.log(data);
 
-  const {data}= await axios.get('https://pokeapi.co/api/v2/pokemon?limit=20');
-  // console.log(data)
-  const poklist=data;
-  
-  setCopy(poklist)
-  console.log(copy)
+    // const {image}=await axios.get('https://picsum.photos/v2/list')
+    // console.log(image)//this wont give destructure
 
-  
-  
+    const data1 = await axios.get('https://picsum.photos/v2/list?page=2&limit=100');
+    console.log(data1.data)
 
-}
+    setCopy(data1.data)
+
+
+
+
+  }
 
 
   return (
-    <div>
-      <button onClick={()=>{getData()}}>add img</button>
+    <div className='p-div'>
+      <div className='newdiv'>
+        <button onClick={() => { getData() }}>add img</button>
 
-      {/* {copy.map((e,idx)=>{
-        
-        return <div>
-          <h1>{e.name}</h1>
-          <img src={e.url} alt="" />
-        </div>
-      })} */}
+        {copy.map((e, idx) => {
+
+          return <div>
+            <h1 id={idx}>{e.id}</h1>
+            <img src={e.download_url
+            } alt="" />
+          </div>
+        })}
+      </div>
     </div>
   )
 }
