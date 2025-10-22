@@ -49,12 +49,15 @@
 // export default App
 
 
-import React from 'react'
+import React, { useState } from 'react'
+import Navbar from './component/Navbar'
 
 const App = () => {
+  const [theame, setTheame] = useState("Light")
   return (
     <div>
-      Hello
+      <h1>the theame is {theame}</h1>
+      <Navbar theame={theame} setTheame={setTheame}/>
     </div>
   )
 }
